@@ -53,9 +53,9 @@ export function useVideoEngine() {
 
         // 2. Get the camera + mic stream at the model's preferred resolution.
         const model = models.realtime("lucy-2.1")
-        let stream: MediaStream
+        let streamRef = { current: null as MediaStream | null }
         try {
-          stream = await navigator.mediaDevices.getUserMedia({
+          streamRef.current = await navigator.mediaDevices.getUserMedia({
             audio: true,
             video: {
               frameRate: model.fps,
@@ -67,6 +67,7 @@ export function useVideoEngine() {
         } catch (mediaErr) {
           throw new Error(describeMediaError(mediaErr))
         }
+        const stream = streamRef.current
         localStreamRef.current = stream
         if (localVideoRef.current) {
           localVideoRef.current.srcObject = stream
