@@ -1,0 +1,10 @@
+{
+  "id": "d296d94d7aa24f6ca7e51241505c36b1",
+  "timestamp": "2026-06-12T11:08:28.571422Z",
+  "command_id": "51150585f9b6444aa6f56219cd6348c2",
+  "order": 0,
+  "exit_code": 1,
+  "stdout": null,
+  "stderr": "chmod: cannot access '.openhands/pre-commit.sh': No such file or directory\n",
+  "kind": "BashOutput"
+}
